@@ -44,6 +44,7 @@ let b = 5;
 console.log(a > b);
 
 let preco = 40.3;
+
 if(preco < 45){
     console.log('preco da carne está barato')
     }else if(preco > 45){
