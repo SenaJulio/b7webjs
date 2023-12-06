@@ -28,3 +28,19 @@ function nomeCompleto(nome, sobrenome){
 }
 let completo = nomeCompleto('Bonieky', 'Lacerda');
 console.log('completo:' +  completo);
+
+
+function maiorDeIdade(idade){
+    if(idade >= 18){
+        return true;
+    }else{
+        return false
+    }
+}
+let verificacao = maiorDeIdade(20)
+console.log(verificacao)
+if(verificacao){
+    console.log("É MAIOR de idade")
+}else{
+    console.log('É MENOR de idade')
+}
