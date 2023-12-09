@@ -42,3 +42,22 @@ function calcularImovel(metragem, quartos) {
     let preco = calcularImovel(metragem, quartos);
    console.log(`A casa custa R$ ${preco}`)
 
+   function validar(usuario, senha) {
+
+    if(usuario == 'pedro' && senha == 123){
+        return true;
+    }else{
+       return false
+   
+}
+   }
+   let usuario = 'pedro';
+   let senha = 1234;
+   let validacao = validar(usuario, senha);
+   if(validacao){
+    console.log('Acesso concedido')
+   }else{
+    console.log('Acesso NEGADO')
+   }
+   
+   
