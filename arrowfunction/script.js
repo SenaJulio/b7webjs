@@ -1,6 +1,6 @@
-/* function somar (x, y){
+ function somar (x, y){
     return x + y
-}*/
+}
 
 const somar = (x, y) =>{
     return x + y;
