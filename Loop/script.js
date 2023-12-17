@@ -36,3 +36,12 @@ for( let i in coress){
     coress[i].nome = coress[i].nome.toUpperCase();
 }
 console.log(coress);
+ 
+
+// Loop com while
+
+let numero = 0;
+while( numero <= 10){
+    console.log(`O numero da vez é ${numero}`);
+    numero++;
+}
