@@ -14,7 +14,7 @@ function clicou() {
      button.classList.replace('branco', 'preto')
 
      //outra forma de faze o If
-     
+
      if (button.classList.contains('azul')) {
         button.classList.replace('azul', 'verde')
      }else{
@@ -24,7 +24,8 @@ function clicou() {
 
 /*
 Pegar Classes
-button.classlist = responsavel pelas classes do meu elemento
-button.classeList.add = adicionar uma classe nova
-buttton.classList.remove = remove uma classe
+button.classlist() = responsavel pelas classes do meu elemento
+button.classeList.add() = adicionar uma classe nova
+buttton.classList.remove() = remove uma classe
+button.classList.contains() = verificar se tem uma class
 */
