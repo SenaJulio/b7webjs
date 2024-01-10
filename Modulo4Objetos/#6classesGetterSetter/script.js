@@ -24,4 +24,4 @@ let p2 = new Person("Maria", "Leite");
 let p3 = new Person("Pedro", "Duarte");
 
 p1.age = 20;
-console.log(`${p1.fullName} tem ${p1age} anos.`);
+console.log(`${p1.fullName} tem ${p1.age} anos.`);
