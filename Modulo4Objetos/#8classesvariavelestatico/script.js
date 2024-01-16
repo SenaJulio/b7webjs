@@ -8,7 +8,7 @@ class Person{
         this.name = name
     }
     sayHi(){
-        console.log(`oi, eu sou ${this.name} e tenho ${Person.hands}`);
+        console.log(`oi, eu sou ${this.name} e tenho ${Person.hands} mãos`);
     }
 }
 
