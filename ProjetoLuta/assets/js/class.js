@@ -58,3 +58,28 @@ class BigMonster extends Character{
     }
 
 }
+
+class Stage{
+    constructor(fighter1, fighter2, fighter1E1, fighter2E1){
+        this.fighter1 = fighter1
+        this.fighter2 = fighter2
+        this.fighter1E1 = fighter1E1
+        this.fighter2E1 = fighter2E1
+    }
+    start(){
+        this.update();
+        // TODO: Evento do botão de atacar
+    }
+    update(){
+        //Fighter 1
+    this.fighter1E1.querySelector('.name').innerHTML = `${this.fighter1.name} - ${this.fighter1.life} HP`;
+     let f1pct = (this.fighter1.life / this.fighter1.maxLife) * 100;
+    this.fighter1E1.querySelector('.bar').style.width = `${f1pct}%`;
+
+
+        //Fighter2
+        this.fighter2E1.querySelector('.name').innerHTML = `${this.fighter2.name} - ${this.fighter2.life}HP`;
+        let f2pct = (this.fighter2.life / this.fighter2.maxLife) * 100;
+        this.fighter2E1.querySelector('.bar').style.width = `${f2pct}%`
+    }
+}
