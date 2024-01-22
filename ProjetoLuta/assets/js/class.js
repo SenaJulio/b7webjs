@@ -66,9 +66,13 @@ class Stage{
         this.fighter1E1 = fighter1E1
         this.fighter2E1 = fighter2E1
     }
+
     start(){
         this.update();
+
         // TODO: Evento do botão de atacar
+        this.fighter1E1.querySelector(".attackButton").addEventListener('click',() => this.doAttack(this.fighter1, this.fighter2));
+        this.fighter2E1.querySelector(".attackButton").addEventListener('click',() => this.doAttack(this.fighter2, this.fighter1));
     }
     update(){
         //Fighter 1
@@ -81,5 +85,19 @@ class Stage{
         this.fighter2E1.querySelector('.name').innerHTML = `${this.fighter2.name} - ${this.fighter2.life}HP`;
         let f2pct = (this.fighter2.life / this.fighter2.maxLife) * 100;
         this.fighter2E1.querySelector('.bar').style.width = `${f2pct}%`
+    }
+
+    doAttack(attracking, attacked){
+       console.log(`${attracking.name} está atacando ${attacked.name}`);
+       if(attracking.life <= 0 || attacked.life <= 0){
+         console.log(`Atacando cachorro morto`);
+         return;
+       }
+       
+       let attackFactor = (Math.random()* 2) . toFixed(2);
+       console.log(attackFactor);
+
+       let actualAttack = attracking.attack * attackFactor;
+       this.update();
     }
 }
