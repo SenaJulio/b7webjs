@@ -60,11 +60,12 @@ class BigMonster extends Character{
 }
 
 class Stage{
-    constructor(fighter1, fighter2, fighter1E1, fighter2E1){
-        this.fighter1 = fighter1
-        this.fighter2 = fighter2
-        this.fighter1E1 = fighter1E1
-        this.fighter2E1 = fighter2E1
+    constructor(fighter1, fighter2, fighter1E1, fighter2E1, logObject){
+        this.fighter1 = fighter1;
+        this.fighter2 = fighter2;
+        this.fighter1E1 = fighter1E1;
+        this.fighter2E1 = fighter2E1;
+        this.log = logObject;
     }
 
     start(){
@@ -76,13 +77,13 @@ class Stage{
     }
     update(){
         //Fighter 1
-    this.fighter1E1.querySelector('.name').innerHTML = `${this.fighter1.name} - ${this.fighter1.life} HP`;
+    this.fighter1E1.querySelector('.name').innerHTML = `${this.fighter1.name} - ${this.fighter1.life.toFixed(1)} HP`;
      let f1pct = (this.fighter1.life / this.fighter1.maxLife) * 100;
     this.fighter1E1.querySelector('.bar').style.width = `${f1pct}%`;
 
 
         //Fighter2
-        this.fighter2E1.querySelector('.name').innerHTML = `${this.fighter2.name} - ${this.fighter2.life}HP`;
+        this.fighter2E1.querySelector('.name').innerHTML = `${this.fighter2.name} - ${this.fighter2.life.toFixed(1)}HP`;
         let f2pct = (this.fighter2.life / this.fighter2.maxLife) * 100;
         this.fighter2E1.querySelector('.bar').style.width = `${f2pct}%`
     }
@@ -90,14 +91,44 @@ class Stage{
     doAttack(attracking, attacked){
        console.log(`${attracking.name} está atacando ${attacked.name}`);
        if(attracking.life <= 0 || attacked.life <= 0){
-         console.log(`Atacando cachorro morto`);
+         this.log.addMessage(`Atacando cachorro morto`);
          return;
        }
        
-       let attackFactor = (Math.random()* 2) . toFixed(2);
-       console.log(attackFactor);
+       let attackFactor = (Math.random()* 2).toFixed(2);
+       let defenseFator = (Math.random()* 2).toFixed(2);
 
        let actualAttack = attracking.attack * attackFactor;
+       let actualDefense = attacked.defense * defenseFator;
+
+       if(actualAttack > actualDefense){
+          attacked.life -= actualAttack;
+          this.log.addMessage(`${attracking.name} causou ${actualAttack.toFixed(2)} de dano em ${attacked.name}`);
+       }else{
+        this.log.addMessage(`${attacked.name} conseguiu defender..`);
+       }
+
        this.update();
+    }
+}
+
+class Log{
+    list = [];
+
+    constructor(listE1){
+        this.listE1 = listE1
+    }
+
+    addMessage(msg){
+         this.list.push(msg)
+         this.render();
+    }
+
+    render(){
+        this.listE1.innerHTML = '';
+
+        for(let i in this.list){
+            this.listE1.innerHTML += `<li>${this.list[i]}</li>`
+        }
     }
 }
